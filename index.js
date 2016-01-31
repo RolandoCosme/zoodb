@@ -12,19 +12,31 @@ var connection = mysql.createConnection( {
   database: 'zoo_db'
 });
 
-//console.log("works!");
-
 connection.connect ( function (err){
   if (err) {
     console.error( 'err connection' + err.stack);
     return;
-  } else {
-    console.log("blah");
-  }
+  } 
+  // else {
+  //   console.log("Connected to Zoo Database");
+  // }
 });
 
-zoo = function welcome () {
+var zoo = function welcome () {
   console.log( "Welcome to the Zoo and Friends App~!");
-
+  var menu = ["A", "U", "V", "D"];
+    console.log("Enter (A): ----> To Add a new animal to the Zoo!");
+    console.log("");    
+    console.log("Enter (U): ----> To Update information on an animal in the Zoo!");
+    console.log("");
+    console.log("Enter (V): ----> To Visit the animals in the Zoo!");
+    console.log("");
+    console.log("Enter (D): ----> To Quit and Exit Zoo!");
+    add = function () {
+      currentScope = input_scope;
+      console.log("To add an animal to the Zoo please fill out the following form for us!");
+  }
 }
+
 zoo ();
+connection.end();
