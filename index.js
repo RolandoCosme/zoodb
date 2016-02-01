@@ -91,6 +91,15 @@ zoo = function () {
       currentScope.view(currentScope);
     }
   }
+  var type = function (input_scope){
+    var currentScope = input_scope;
+    console.log("Enter animal type to find how many animals we have of those type.");
+    prompt.get(["animal", "type"]), function (err, results){
+      connection.query('SELECT * FROM animals WHERE type=(results)') // this line needs revising at results
+      currentScope.menu();
+      currentScope.promptUser();
+    }
+  }
 
   welcome();
   //add();
