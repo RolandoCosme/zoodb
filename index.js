@@ -121,7 +121,26 @@ zoo = function () {
       currentScope.view(currentScope);
     }
   }
-
+  var name = function (input_scope){
+    currentScope = input_scope;
+    console.log("Enter Name of the animal you want to visit");
+    prompt.get(["animal_name"]), function (err, results){
+      connection.query(" get the data for the particular animal of that Name that the user typed in.");
+      if (err) throw err;
+      currentScope.visit();
+      currentScope.view(currentScope);
+    }
+  }
+  var all = function (input_scope){
+    var currentScope = input_scope;
+    console.log("Enter all to find how many animals we have.");
+    prompt.get(["animal", "type"]), function (err, results){
+      connection.query('SELECT * FROM animals') // this line needs revising at results
+      if (err) throw err;
+      currentScope.menu();
+      currentScope.promptUser();
+    }); // verify this line for other functions also
+  }
 
 
   welcome();
