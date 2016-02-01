@@ -1,7 +1,7 @@
 
 var mysql = require ('mysql');
 var prompt = require ("prompt");
-debugger;
+
 prompt.start();
 prompt.message = "" ;
 
@@ -32,11 +32,20 @@ var zoo = function welcome () {
     console.log("Enter (V): ----> To Visit the animals in the Zoo!");
     console.log("");
     console.log("Enter (D): ----> To Quit and Exit Zoo!");
-    add = function () {
+    var addAnimals = function () {
       currentScope = input_scope;
       console.log("To add an animal to the Zoo please fill out the following form for us!");
+      prompt.get(["name", "type", "age"]), function (err, result){
+        connection.query('INSERT INTO zoo_db (name, type, age) VALUES (?,?,?)', ["Jin", "Bear", "3"], function(err,result){
+          if (err) throw err;
+          menu;
+      });
+    }
+    var visit = function ()
   }
 }
 
+
+debugger;
 zoo ();
 connection.end();
