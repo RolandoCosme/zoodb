@@ -96,6 +96,7 @@ zoo = function () {
     console.log("Enter animal type to find how many animals we have of those type.");
     prompt.get(["animal", "type"]), function (err, results){
       connection.query('SELECT * FROM animals WHERE type=(results)') // this line needs revising at results
+      if (err) throw err;
       currentScope.menu();
       currentScope.promptUser();
     }
@@ -105,11 +106,21 @@ zoo = function () {
     console.log("Enter city name NY / SF");
     prompt.get(["city_name"]), function (err, results){
       connection.query(" string in the form of a mySQL select the number of animals that all the caretakers from the specific user inputed city"); // add correct mySQL statement
+      if (err) throw err;
       currentScope.visit();
       currentScope.view(currentScope);
     }
   }
-  
+  var animId = function (input_scope){
+    currentScope = input_scope;
+    console.log("Enter ID of the animal you want to visit");
+    prompt.get(["animal_id"]), function (err, results){
+      connection.query(" get the data for the particular animal of that id that the user typed in.");
+      if (err) throw err;
+      currentScope.visit();
+      currentScope.view(currentScope);
+    }
+  }
 
 
   welcome();
