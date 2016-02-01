@@ -34,7 +34,7 @@ zoo = function () {
       console.log("");
       console.log("Enter (D): ----> To Quit and Exit Zoo!");
   }
-  var addAnimals = function () {
+  var add = function (input_scope) {
     currentScope = input_scope;
     console.log("To add an animal to the Zoo please fill out the following form for us!");
     prompt.get(["name", "type", "age"]), function (err, result){
@@ -45,10 +45,56 @@ zoo = function () {
     }
   }
   var visit = function (){
-    
-  }  
+    var menu = ["I", "N", "A", "C", "O", "Q"];
+      console.log("Enter (I): ----> Do you know the animal by it's ID? We will visit that animal!");
+      console.log("");    
+      console.log("Enter (N): ----> Do you know the animal by it's name? We will visit that animal!");
+      console.log("");
+      console.log("Enter (A): ----> Here's a count for all animals in all locations!");
+      console.log("");
+      console.log("Enter (C): ----> Here's a count for all the animals in this one city!");
+      console.log("");
+      console.log("Enter (O): ----> Here's a count for all the animals in all locations byt the type you specified!");
+      console.log("");
+      console.log("Enter (Q): ----> Quits to the main menu!");
+    currentScope.visit();
+    currentScope.view(currentScope);
+  }
+  var view = function (){
+    function add (input_scope){
+      var currentScope = input_scope;
+      console.log("Please choose what you like to visit!");
+      prompt.get(["visit"]), function (err, results){
+        if (result.visit == "Q"){
+          currentScope.menu();
+          else if (result.visit == "O") {
+            currentScope.type(input_scope);
+          };
+          else if (result.type == "I") {
+            currentScope.type(input_scope);
+          };
+          else if (result.animId =="N") {
+            currentScope.name(input_scope);
+          };
+          else if (result.name == "A") {
+            currentScope.all(input_scope);
+          };
+          else if (result.all == "C") {
+            currentScope.care(input_scope);
+          };
+          else {
+            console.log("Sorry didn't get that, come again?");
+          }
+        }
+      }
+      currentScope.visit();
+      currentScope.view(currentScope);
+    }
+  }
+
   welcome();
-  addAnimals();
+  //add();
+  //visit();
 }
 
 
