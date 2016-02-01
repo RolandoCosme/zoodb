@@ -100,6 +100,17 @@ zoo = function () {
       currentScope.promptUser();
     }
   }
+  var care = function (input_scope){
+    var currentScope = input_scope;
+    console.log("Enter city name NY / SF");
+    prompt.get(["city_name"]), function (err, results){
+      connection.query(" string in the form of a mySQL select the number of animals that all the caretakers from the specific user inputed city"); // add correct mySQL statement
+      currentScope.visit();
+      currentScope.view(currentScope);
+    }
+  }
+  
+
 
   welcome();
   //add();
